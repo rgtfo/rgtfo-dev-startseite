@@ -1,0 +1,151 @@
+/* ===============================
+   Root variables
+   =============================== */
+:root {
+  --glass-bg: #dddddd29;
+  --glass-bg-hover: #ffffff3d;
+  --glass-border: 1px solid rgba(255, 255, 255, 0.35);
+  --glass-radius: 22px;
+  --glass-blur: 18px;
+  --glass-saturate: 150%;
+  --glass-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
+  --glass-shadow-hover: 0 6px 25px rgba(0, 0, 0, 0.3);
+  --hover-scale: 1.04;
+  --search-hover-scale: 1.02;
+  --icon-scale: 1.06;
+  --easing: 0.3s ease-in-out;
+  --hover-color: #fb923c;
+}
+
+/* ===============================
+   Background setup
+   =============================== */
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("../assets/images/light-bg.png");
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 14px;
+  font-style: normal;
+  transition: background 0.5s;
+}
+
+.dark body {
+  background-image: url("../assets/images/bg.png");
+}
+
+/* ===============================
+   Glass container
+   =============================== */
+.glass-container {
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  border-radius: var(--glass-radius);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur))
+    saturate(var(--glass-saturate));
+  box-shadow: var(--glass-shadow);
+  z-index: 5;
+}
+
+/* Hover */
+.glass-container-hover:hover,
+.searchbar-container:focus-within {
+  background: var(--glass-bg-hover);
+  box-shadow: var(--glass-shadow-hover);
+  transform: scale(var(--hover-scale));
+}
+.searchbar-container:hover {
+  transform: scale(var(--search-hover-scale));
+  cursor: pointer;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+.glass-container-hover:hover {
+  cursor: pointer;
+}
+
+/* ===============================
+   Google services row
+   =============================== */
+.secondrow.glass-container {
+  display: flex;
+  padding: 0;
+  gap: 0;
+}
+
+.icon-container {
+  border-radius: 0; /* edges handled separately */
+}
+
+.icon-container:hover {
+  background: var(--glass-bg-hover);
+}
+
+.icon-container:hover .icon-img {
+  transform: scale(var(--icon-scale));
+}
+
+/* Rounded edges for row ends */
+.first-round {
+  border-radius: var(--glass-radius) 0 0 var(--glass-radius);
+}
+.last-round {
+  border-radius: 0 var(--glass-radius) var(--glass-radius) 0;
+}
+
+/* ===============================
+   Dark mode
+   =============================== */
+.dark input#search-box {
+  color: #ffffffcd;
+}
+.dark input#search-box::placeholder {
+  color: #d2d4d6; /* neutral-200 */
+}
+
+.dark .edit-button {
+  color: #ffffffcd;
+  fill: #ffffffcd;
+}
+
+.edit-button:hover {
+  color: var(--hover-color);
+  fill: var(--hover-color);
+}
+
+.dark .darkmode-toggle {
+  fill: #ffffffcd;
+}
+
+.rg-logo path {
+  fill: #000000;
+}
+
+.dark .rg-logo path {
+  fill: #ffffffcd;
+}
+
+.darkmode-toggle:hover {
+  fill: var(--hover-color);
+}
+
+.dark .links {
+  color: #ffffffcd;
+}
+.dark #search-button {
+  fill: #ffffffcd;
+}
+/* ===============================
+   Links
+   =============================== */
+.news-link:hover {
+  text-decoration: underline;
+  color: var(--hover-color); /* orange-400 */
+}

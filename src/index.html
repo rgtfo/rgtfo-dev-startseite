@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="/images/favicon.svg" />
+    <title>RG/TFO Startseite</title>
+  </head>
+  <body class="flex justify-center items-center h-screen w-screen">
+    <div
+      class="sm:p-5 p-3 flex flex-col gap-4 w-[100vw] sm:w-[80vw] lg:w-[60vw] max-w-[1100px]"
+    >
+      <!-- First row -->
+      <div class="firstrow flex gap-2 lg:gap-5 justify-center items-center">
+        <div
+          class="flex-1 flex justify-center py-3 glass-container glass-container-hover transition-all ease-in-out duration-300"
+        >
+          <a href="https://rgtfo-me.digitalesregister.it/v2/login">
+            <img
+              class="lg:h-22 md:h-17 h-11 w-auto object-contain"
+              src="/images/digi.png"
+              alt="Digital"
+            />
+          </a>
+        </div>
+
+        <div
+          class="flex-1 flex justify-center py-3 glass-container glass-container-hover transition-all ease-in-out duration-300"
+        >
+          <a href="https://justlearnit.rgtfo-me.it/moodle/">
+            <img
+              class="lg:h-22 md:h-17 h-11 w-auto object-contain"
+              src="/images/moodle.svg"
+              alt="Moodle"
+            />
+          </a>
+        </div>
+
+        <div
+          class="flex-1 flex justify-center py-3 glass-container glass-container-hover transition-all ease-in-out duration-300 relative"
+        >
+          <a href="https://rg-tfo-meran.openportal.siag.it/">
+            <img
+              class="lg:h-22 md:h-17 h-11 w-auto object-contain"
+              src="/images/biblio.svg"
+              alt="Bibliothek"
+            />
+          </a>
+          <img
+            id="easter-overlay"
+            class="absolute sm:top-[-100px] top-[-60px] h-[60px] sm:h-[100px] left-1/2 -translate-x-1/2 pointer-events-none select-none"
+            src="/images/bunny-overlay.png"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <!-- Google services row -->
+      <div class="secondrow glass-container flex w-full">
+        <a
+          href="https://mail.google.com/"
+          class="icon-container transition-all ease-in-out duration-300 flex flex-1 md:p-5 p-2 justify-center items-center first-round"
+        >
+          <img
+            src="/images/gmail.svg"
+            class="icon-img lg:h-10 md:h-8 sm:h-6 h-5 transition-all ease-in-out duration-300"
+          />
+        </a>
+
+        <a
+          href="https://drive.google.com/"
+          class="icon-container transition-all ease-in-out duration-300 flex flex-1 md:p-5 p-2 justify-center items-center"
+        >
+          <img
+            src="/images/drive.svg"
+            class="icon-img lg:h-10 md:h-8 h-5 transition-all ease-in-out duration-300"
+          />
+        </a>
+
+        <a
+          href="https://docs.google.com/"
+          class="icon-container transition-all ease-in-out duration-300 flex flex-1 md:p-5 p-2 justify-center items-center"
+        >
+          <img
+            src="/images/docs.svg"
+            class="icon-img lg:h-10 md:h-8 h-5 transition-all ease-in-out duration-300"
+          />
+        </a>
+
+        <a
+          href="https://docs.google.com/spreadsheets/"
+          class="icon-container transition-all ease-in-out duration-300 flex flex-1 md:p-5 p-2 justify-center items-center"
+        >
+          <img
+            src="/images/sheets.svg"
+            class="icon-img lg:h-10 md:h-8 h-5 transition-all ease-in-out duration-300"
+          />
+        </a>
+
+        <a
+          href="https://docs.google.com/presentation/"
+          class="icon-container transition-all ease-in-out duration-300 flex flex-1 md:p-5 p-2 justify-center items-center"
+        >
+          <img
+            src="/images/slides.svg"
+            class="icon-img lg:h-10 md:h-8 h-5 transition-all ease-in-out duration-300"
+          />
+        </a>
+
+        <a
+          href="https://classroom.google.com/"
+          class="icon-container transition-all ease-in-out duration-300 flex flex-1 md:p-5 p-2 justify-center items-center last-round"
+        >
+          <img
+            src="/images/classroom.svg"
+            class="icon-img lg:h-10 md:h-8 h-5 transition-all ease-in-out duration-300"
+          />
+        </a>
+      </div>
+
+      <!-- Search bar -->
+      <div
+        class="glass-container transition-all ease-in-out duration-300glass-container-hover searchbar-container w-full lg:h-8.5 sm:h-8 h-7 flex items-center sm:px-3 px-0.5 sm:text-[14px] text-[16px]"
+      >
+        <form
+          id="search-form"
+          class="flex items-center w-full"
+          action="https://www.google.com/search"
+          method="GET"
+          target="_blank"
+        >
+          <input
+            type="search"
+            id="search-box"
+            name="q"
+            placeholder="Websuche mit Google"
+            autocomplete="off"
+            inputmode="search"
+            class="flex-grow bg-transparent dark:text-white placeholder-neutral-900 dark:placeholder-neutral-200 outline-none px-2"
+          />
+          <button
+            type="submit"
+            id="search-button"
+            class="ml-2 flex items-center justify-center w-9 h-9"
+          >
+            <svg viewBox="0 0 24 24" class="h-5 w-5 lg:h-6 lg:w-6 text-white">
+              <path
+                d="M15.5 14h-.79l-.28-.27C15.41 
+             12.59 16 11.11 16 9.5 
+             16 5.91 13.09 3 9.5 3S3 5.91 
+             3 9.5 5.91 16 9.5 16c1.61 
+             0 3.09-.59 4.23-1.57l.27.28v.79
+             l5 4.99L20.49 19l-4.99-5zm-6 
+             0C7.01 14 5 11.99 5 9.5S7.01 
+             5 9.5 5 14 7.01 14 9.5 
+             11.99 14 9.5 14z"
+              />
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- School buttons -->
+      <div class="schoolrow flex w-full justify-center gap-2 lg:gap-5">
+        <!-- TFO -->
+        <a
+          href="https://www.tfo-meran.it/"
+          class="glass-container glass-container-hover transition-all ease-in-out duration-300 flex justify-center items-center sm:py-3 py-2 sm:px-10 px-5"
+        >
+          <img
+            src="/images/tfo.svg"
+            class="lg:h-8 md:h-7 h-5 w-auto object-contain"
+          />
+        </a>
+
+        <!-- RG -->
+        <a
+          href="https://www.rg-me.it/"
+          class="glass-container glass-container-hover transition-all ease-in-out duration-300 flex justify-center items-center sm:py-3 py-2 sm:px-10 px-5"
+        >
+          <svg
+            class="rg-logo lg:h-8 md:h-7 h-5 w-auto"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 268.3"
+          >
+            <path
+              d="M35.35,266.45V1.85h112.87c50.33,0,75.49,21.16,75.49,63.47,0,34.42-24.61,59.89-73.83,76.42l90.85,124.71h-45.15l-84.19-118.98v-22.39c50.58-8.02,75.86-27.45,75.86-58.29,0-24.42-14.06-36.64-42.19-36.64h-75.49v236.29h-34.23Z"
+            />
+            <path
+              d="M476.65,256.09c-21.34,8.14-44.35,12.21-69.02,12.21-95.85,0-143.77-45.95-143.77-137.85C263.86,43.48,310.12,0,402.64,0c26.52,0,51.19,3.7,74.01,11.1v29.61c-22.82-8.63-46.26-12.95-70.31-12.95-72.16,0-108.24,34.23-108.24,102.69,0,73.4,35.53,110.09,106.58,110.09,11.35,0,23.93-1.48,37.75-4.44v-89.93h34.23v109.91Z"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Links container -->
+    <div class="fixed left-5 bottom-6 z-50">
+      <div class="glass-container links flex items-center gap-2 px-3 py-1">
+        <a href="https://newsboard.rg-me.it/" target="_blank" class="news-link"
+          >News L</a
+        >
+        <span class="text-neutral-700 sm:text-sm text-xs">ǀ</span>
+        <a
+          href="https://newsboard.rg-me.it/?screen=right"
+          target="_blank"
+          class="news-link"
+          >News R</a
+        >
+      </div>
+    </div>
+
+    <!-- Darkmode toggle -->
+    <div class="fixed right-5 bottom-6 z-50">
+      <div
+        id="dark-mode-toggle"
+        class="glass-container darkmode-toggle flex items-center justify-center p-2 cursor-pointer"
+      >
+        <svg height="24px" viewBox="0 -960 960 960" width="24px">
+          <path
+            d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"
+          ></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Edit button -->
+    <div class="fixed right-5 top-6 z-50">
+      <div
+        class="glass-container edit-button flex items-center gap-2 px-3 py-1 cursor-pointer hover:fill-[#fb923c]"
+        title="Klicke, um den Hintergrund zu ändern! Rechtsklick zum Zurücksetzen!"
+      >
+        <svg width="24px" height="24px" viewBox="0 0 24 24">
+          <path
+            d="M.75,17.5A.751.751,0,0,1,0,16.75V12.569a.755.755,0,0,1,.22-.53L11.461.8a2.72,2.72,0,0,1,3.848,0L16.7,2.191a2.72,2.72,0,0,1,0,3.848L5.462,17.28a.747.747,0,0,1-.531.22ZM1.5,12.879V16h3.12l7.91-7.91L9.41,4.97ZM13.591,7.03l2.051-2.051a1.223,1.223,0,0,0,0-1.727L14.249,1.858a1.222,1.222,0,0,0-1.727,0L10.47,3.91Z"
+            transform="translate(3.25 3.25)"
+          ></path>
+        </svg>
+        <span>Edit</span>
+      </div>
+    </div>
+
+    <!-- Halloween overlay (hidden by default) -->
+    <div id="halloween-overlay" class="absolute w-screen h-screen z-0">
+      <img
+        class="object-cover object-right w-full h-full opacity-70"
+        src="/images/halloween-overlay.png"
+        alt=""
+      />
+
+      <div class="fixed bottom-6 left-50 h-20 w-auto">
+        <img
+          class="w-full h-full"
+          src="/images/halloween-overlay.svg"
+          draggable="false"
+        />
+      </div>
+    </div>
+
+    <!-- violence overlay (hidden by default) -->
+
+    <div class="fixed bottom-20 left-5 h-17 w-auto" id="violence-overlay">
+      <a
+        href="https://www.un.org/en/observances/ending-violence-against-women-day"
+      >
+        <img
+          class="w-full h-full"
+          src="/images/violence-day.svg"
+          draggable="false"
+        />
+      </a>
+    </div>
+
+    <!-- Christmas Snow effect (hidden by default) -->
+
+    <div id="christmas-overlay" class="absolute w-screen h-screen z-0 hidden">
+      <canvas
+        id="snow-canvas"
+        class="absolute top-0 left-0 w-full h-full pointer-events-none"
+      ></canvas>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
