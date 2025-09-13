@@ -1,4 +1,3 @@
-// script.js
 document.addEventListener("DOMContentLoaded", () => {
   /* ==========================
      Dev date override
@@ -54,6 +53,19 @@ document.addEventListener("DOMContentLoaded", () => {
       showOverlayOnSpecialDays();
     });
   }
+
+  // --- Google Analytics ---
+  const script = document.createElement("script");
+  script.src = "https://www.googletagmanager.com/gtag/js?id=G-24W2ENS4EZ";
+  script.async = true;
+  document.head.appendChild(script);
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "G-24W2ENS4EZ");
 
   /* ---------------------
      Edit button: upload/reset background
@@ -156,7 +168,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function hideAllOverlays() {
-    Object.values(overlayElements).forEach((el) => el.classList.add("hidden"));
+    Object.values(overlayElements).forEach((el) => {
+      el.style.display = "none";
+      el.style.animation = "";
+    });
   }
 
   function showOverlayOnSpecialDays() {
@@ -176,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (today.month === 11 && today.day >= 24 && today.day <= 31) {
       const overlay = overlayElements["christmas-overlay"];
       if (overlay) {
-        overlay.classList.remove("hidden");
+        overlay.style.display = "block";
         overlay.style.animation = "fadeInOverlay 0.8s ease forwards";
         startSnow();
       }
@@ -186,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (today.month === month && today.day === day) {
         const overlay = overlayElements[id];
         if (overlay) {
-          overlay.classList.remove("hidden");
+          overlay.style.display = "block";
           overlay.style.animation = "fadeInOverlay 0.8s ease forwards";
         }
       }
