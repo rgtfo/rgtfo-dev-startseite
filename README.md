@@ -1,2 +1,3 @@
 # DEV RG/TFO Startseite
 Dies ist der SOURCE-CODE der Dev Startseite für das Realgymnasium und die Technologische Fachoberschule (RGTFO) in Meran. Die Website bietet ein zentrales Startmenü, das es Nutzern ermöglicht, schnell zu den wichtigsten Plattformen und Diensten zu navigieren. Sie dient als schnelle und benutzerfreundliche Einstiegshilfe für Schüler, Lehrer und Eltern. Die Dev-Version beinhaltet zudem Overlays für verschiedene Festtage.
+Im Unterschied zur normalen Seite enthält diese Version zusätzliche Features und versteckte Funktionen, wie etwa Overlays für Weihnachten, Halloween oder andere Festtage sowie einen Konsolenbefehl, der die Google-Suche durch eine ChatGPT-gestützte Suche ersetzt.
