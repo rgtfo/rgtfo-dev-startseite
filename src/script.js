@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     // Christmas 24-31 Dec
-    if (today.month === 11 && today.day >= 24 && today.day <= 31) {
+    if (today.month === 11 && today.day >= 17 && today.day <= 31) {
       const overlay = overlayElements["christmas-overlay"];
       if (overlay) {
         overlay.style.display = "block";
@@ -326,3 +326,4 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initial overlay run
   showOverlayOnSpecialDays();
 });
+
