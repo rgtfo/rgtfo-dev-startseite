@@ -30,19 +30,12 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("lightBg", lightBg);
   if (!localStorage.getItem("darkBg")) localStorage.setItem("darkBg", darkBg);
 
-  // Preload images before applying to prevent flashing
-  function preloadImage(src, cb) {
-    const img = new Image();
-    img.onload = cb;
-    img.src = src;
-  }
-
   function applyTheme() {
     const bg = isDarkMode ? darkBg : lightBg;
     document.body.style.backgroundImage = `url("${bg}")`;
   }
 
-  preloadImage(isDarkMode ? darkBg : lightBg, applyTheme);
+  applyTheme();
 
   if (toggle) {
     toggle.addEventListener("click", () => {
