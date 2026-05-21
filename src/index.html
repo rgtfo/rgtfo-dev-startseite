@@ -15,6 +15,20 @@
     />
     <link rel="shortcut icon" href="/images/favicon.svg" />
     <title>RG/TFO Startseite</title>
+    <script>
+  (() => {
+    const savedMode = localStorage.getItem("darkMode");
+
+    const isDark =
+      savedMode === "enabled" ||
+      (!savedMode &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+    }
+  })();
+</script>
   </head>
   <body class="flex justify-center items-center h-screen w-screen">
     <div
