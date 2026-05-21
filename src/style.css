@@ -5,12 +5,12 @@
   --glass-bg: #dddddd29;
   --glass-bg-hover: #ffffff3d;
   --glass-border: 1px solid rgba(255, 255, 255, 0.35);
-  --glass-radius: 22px;
+  --glass-radius: 21px;
   --glass-blur: 18px;
   --glass-saturate: 150%;
   --glass-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
   --glass-shadow-hover: 0 6px 25px rgba(0, 0, 0, 0.3);
-  --hover-scale: 1.04;
+  --hover-scale: 1.03;
   --search-hover-scale: 1.02;
   --icon-scale: 1.06;
   --easing: 0.3s ease-in-out;
