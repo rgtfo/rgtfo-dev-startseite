@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/images/bg.png">
+    <link rel="preload" as="image" href="/images/bg-light.png">
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap"
       rel="stylesheet"
@@ -26,6 +28,17 @@
 
     if (isDark) {
       document.documentElement.classList.add("dark");
+    }
+
+    const bg = isDark
+      ? localStorage.getItem("darkBg")
+      : localStorage.getItem("lightBg");
+
+    if (bg) {
+      document.documentElement.style.setProperty(
+        "--initial-bg",
+        `url("${bg}")`
+      );
     }
   })();
 </script>
@@ -307,7 +320,7 @@
       ></canvas>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
 
