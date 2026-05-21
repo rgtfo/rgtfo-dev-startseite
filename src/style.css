@@ -23,17 +23,20 @@
 body {
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("../assets/images/light-bg.png");
+  background-position: center;
+  background-image: url("/images/bg-light.png");
+
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-size: 14px;
   font-style: normal;
-  transition: background 0.5s;
+
+  transition: background-image 0.3s ease;
 }
 
 .dark body {
-  background-image: url("../assets/images/bg.png");
+  background-image: url("/images/bg.png");
 }
 
 /* ===============================
