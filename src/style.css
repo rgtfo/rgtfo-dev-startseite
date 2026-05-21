@@ -24,7 +24,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("/images/bg-light.png");
+  background-image: var(--initial-bg, url("/images/bg-light.png"));
 
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
