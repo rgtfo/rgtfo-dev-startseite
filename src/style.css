@@ -118,10 +118,6 @@ input[type="search"]::-webkit-search-results-decoration {
   fill: #ffffffcd;
 }
 
-.edit-button:hover {
-  color: var(--hover-color);
-  fill: var(--hover-color);
-}
 
 .dark .darkmode-toggle {
   fill: #ffffffcd;
@@ -133,10 +129,6 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .dark .rg-logo path {
   fill: #ffffffcd;
-}
-
-.darkmode-toggle:hover {
-  fill: var(--hover-color);
 }
 
 .dark .links {
