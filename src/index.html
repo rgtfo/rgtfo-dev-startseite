@@ -1,16 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google-site-verification" content="U-yj-uN5e-73tGezefCUsPFHMLYHVprZAhm7_9BXW2M" />
-    <meta name="description" content="Startseite für das Realgymnasium und die TFO Meran">
+    <meta
+      name="google-site-verification"
+      content="U-yj-uN5e-73tGezefCUsPFHMLYHVprZAhm7_9BXW2M"
+    />
+    <meta
+      name="description"
+      content="Startseite für das Realgymnasium und die TFO Meran"
+    />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="image" href="/images/bg.png">
-    <link rel="preload" as="image" href="/images/bg-light.png">
+    <link rel="preload" as="image" href="/images/bg.png" />
+    <link rel="preload" as="image" href="/images/bg-light.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap"
       rel="stylesheet"
@@ -18,30 +24,30 @@
     <link rel="shortcut icon" href="/images/favicon.svg" />
     <title>RG/TFO Startseite</title>
     <script>
-  (() => {
-    const savedMode = localStorage.getItem("darkMode");
+      (() => {
+        const savedMode = localStorage.getItem("darkMode");
 
-    const isDark =
-      savedMode === "enabled" ||
-      (!savedMode &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches);
+        const isDark =
+          savedMode === "enabled" ||
+          (!savedMode &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
 
-    if (isDark) {
-      document.documentElement.classList.add("dark");
-    }
+        if (isDark) {
+          document.documentElement.classList.add("dark");
+        }
 
-    const bg = isDark
-      ? localStorage.getItem("darkBg")
-      : localStorage.getItem("lightBg");
+        const bg = isDark
+          ? localStorage.getItem("darkBg")
+          : localStorage.getItem("lightBg");
 
-    if (bg) {
-      document.documentElement.style.setProperty(
-        "--initial-bg",
-        `url("${bg}")`
-      );
-    }
-  })();
-</script>
+        if (bg) {
+          document.documentElement.style.setProperty(
+            "--initial-bg",
+            `url("${bg}")`,
+          );
+        }
+      })();
+    </script>
   </head>
   <body class="flex justify-center items-center h-screen w-screen">
     <div
@@ -212,22 +218,6 @@
       </div>
     </div>
 
-    <!-- Links container -->
-    <div class="fixed left-5 bottom-6 z-50">
-      <div class="glass-container links flex items-center gap-2 px-3 py-1">
-        <a href="https://newsboard.rg-me.it/" target="_blank" class="news-link"
-          >News L</a
-        >
-        <span class="text-neutral-700 sm:text-sm text-xs">ǀ</span>
-        <a
-          href="https://newsboard.rg-me.it/?screen=right"
-          target="_blank"
-          class="news-link"
-          >News R</a
-        >
-      </div>
-    </div>
-
     <!-- Darkmode toggle -->
     <div class="fixed right-5 bottom-6 z-50">
       <div
@@ -266,19 +256,27 @@
         alt=""
       />
 
-      <div class="fixed bottom-6 left-50 h-20 w-auto">
+      <div id="halloween-wiggle" class="fixed bottom-6 left-50 h-20 w-auto">
         <img
           class="w-full h-full"
           src="/images/halloween-overlay.svg"
           draggable="false"
+          alt=""
         />
+
+        <span
+          id="halloween-booh"
+          class="absolute top-0 -right-20 -translate-x-1/2 text-xs bg-gray-200 px-3 py-0.5 rounded-full opacity-0 pointer-events-none"
+        >
+          BOOH!
+        </span>
       </div>
     </div>
 
     <!-- violence overlay (hidden by default) -->
 
     <div
-      class="fixed bottom-20 left-5 h-17 w-auto hidden"
+      class="fixed bottom-7 transition-all left-6 h-12 hover:scale-103 transition-scale w-auto hidden"
       id="violence-overlay"
     >
       <a
@@ -290,6 +288,35 @@
           draggable="false"
         />
       </a>
+    </div>
+
+    <!-- star wars overlay (hidden by default) -->
+
+    <div
+      class="fixed top-7 left-5 h-18 w-auto hover:scale-102 transition-all hidden"
+      id="star-wars-overlay"
+      title="Star Wars Day"
+    >
+      <a href="https://www.starwars.com/">
+        <img
+          class="w-full h-full"
+          src="/images/star-wars.svg"
+          draggable="false"
+        />
+      </a>
+    </div>
+
+    <!-- valentines overlay (hidden by default) -->
+
+    <div
+      class="fixed bottom-7 left-5 h-25 w-auto hidden"
+      id="valentines-overlay"
+    >
+      <img
+        class="w-full h-full"
+        src="/images/valentine.gif"
+        draggable="false"
+      />
     </div>
 
     <!-- Christmas Snow effect (hidden by default) -->
@@ -304,5 +331,3 @@
     <script src="script.js" defer></script>
   </body>
 </html>
-
-
