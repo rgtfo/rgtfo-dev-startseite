@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
      Set DEV_DATE to a string "DD.MM.YYYY" to force a date for testing.
      Set to null to use the real Europe/Rome date.
   ========================= */
-  const DEV_DATE = null;
+  const DEV_DATE = "14.02.2026";
 
   /* ---------------------
      Dark mode toggle + backgrounds
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
             applyTheme();
           } catch {
             alert(
-              "Die Datei ist zu groß! Das Speicherlimit wurde überschritten."
+              "Die Datei ist zu groß! Das Speicherlimit wurde überschritten.",
             );
           }
         };
@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     const now = new Date();
     const rome = new Date(
-      now.toLocaleString("en-US", { timeZone: "Europe/Rome" })
+      now.toLocaleString("en-US", { timeZone: "Europe/Rome" }),
     );
     return {
       day: rome.getDate(),
@@ -177,6 +177,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const events = [
       { id: "violence-overlay", month: 10, day: 25 },
       { id: "halloween-overlay", month: 9, day: 31 },
+      { id: "star-wars-overlay", month: 4, day: 4 },
+      { id: "valentines-overlay", month: 1, day: 14 },
       { id: "easter-overlay", month: easter.month, day: easter.day },
     ];
 
@@ -281,7 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!query) return;
         window.open(
           `https://chat.openai.com/?q=${encodeURIComponent(query)}`,
-          "_blank"
+          "_blank",
         );
       };
     } else {
@@ -300,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
     applySearchEngine();
     console.log(
       "%cChatGPT Suche aktiviert!",
-      "color: green; font-weight: bold;"
+      "color: green; font-weight: bold;",
     );
   };
 
@@ -309,9 +311,26 @@ document.addEventListener("DOMContentLoaded", () => {
     applySearchEngine();
     console.log(
       "%cChatGPT Suche deaktiviert!",
-      "color: orange; font-weight: bold;"
+      "color: orange; font-weight: bold;",
     );
   };
+
+  const halloweenWiggle = document.getElementById("halloween-wiggle");
+  const halloweenBooh = document.getElementById("halloween-booh");
+
+  if (halloweenWiggle) {
+    halloweenWiggle.addEventListener("click", () => {
+      halloweenWiggle.classList.remove("halloween-wiggle");
+      halloweenBooh?.classList.remove("halloween-booh");
+
+      // Restart animations
+      void halloweenWiggle.offsetWidth;
+      if (halloweenBooh) void halloweenBooh.offsetWidth;
+
+      halloweenWiggle.classList.add("halloween-wiggle");
+      halloweenBooh?.classList.add("halloween-booh");
+    });
+  }
 
   // Manual overlay refresh
   window.refreshOverlays = showOverlayOnSpecialDays;
@@ -319,5 +338,3 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initial overlay run
   showOverlayOnSpecialDays();
 });
-
-
