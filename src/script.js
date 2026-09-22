@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
      Set DEV_DATE to a string "DD.MM.YYYY" to force a date for testing.
      Set to null to use the real Europe/Rome date.
   ========================= */
-  const DEV_DATE = "14.02.2026";
+  const DEV_DATE = null;
 
   /* ---------------------
      Dark mode toggle + backgrounds
