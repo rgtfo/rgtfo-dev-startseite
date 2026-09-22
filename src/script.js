@@ -126,15 +126,22 @@ document.addEventListener("DOMContentLoaded", () => {
       if (parsed) return parsed;
       console.warn("DEV_DATE invalid, falling back to real Rome date.");
     }
-    const now = new Date();
-    const rome = new Date(
-      now.toLocaleString("en-US", { timeZone: "Europe/Rome" }),
-    );
-    return {
-      day: rome.getDate(),
-      month: rome.getMonth(),
-      year: rome.getFullYear(),
-    };
+
+    // Get the actual current date in Europe/Rome
+    // without converting a localized string back into a Date object.
+    const parts = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Europe/Rome",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    }).formatToParts(new Date());
+
+    const day = Number(parts.find((p) => p.type === "day").value);
+    const month =
+      Number(parts.find((p) => p.type === "month").value) - 1;
+    const year = Number(parts.find((p) => p.type === "year").value);
+
+    return { day, month, year };
   }
 
   function getEasterDate(year) {
@@ -251,6 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
       drawFlakes();
       requestAnimationFrame(animate);
     }
+
     animate();
 
     let resizeRAF;
@@ -271,16 +279,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function applySearchEngine() {
     if (!searchForm || !searchBox) return;
+
     const chatMode = localStorage.getItem("chatgptSearch") === "enabled";
+
     if (chatMode) {
       searchForm.action = "https://chat.openai.com/";
       searchForm.method = "GET";
       searchForm.target = "_blank";
       searchBox.placeholder = "Suche mit ChatGPT";
+
       searchForm.onsubmit = (e) => {
         e.preventDefault();
         const query = String(searchBox.value || "").trim();
         if (!query) return;
+
         window.open(
           `https://chat.openai.com/?q=${encodeURIComponent(query)}`,
           "_blank",
